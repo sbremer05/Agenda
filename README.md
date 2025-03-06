@@ -6,3 +6,5 @@ Can add, edit, remove sections (school, work, errands, etc.)
 Within sections can add, edit, remove tasks
 
 All persisted to SQL database using Hibernate
+
+Utilizes gradle
