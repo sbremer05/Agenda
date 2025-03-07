@@ -16,8 +16,14 @@ public class DashboardController {
     @FXML
     TextField searchSectionField;
 
-    public void addSection() {
+    public void createSection() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/createSection.fxml"));
+        Scene scene = new Scene(loader.load());
 
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setScene(scene);
+        stage.setTitle("Create Section");
+        stage.show();
     }
 
     public void searchSections() {
