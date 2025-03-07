@@ -83,17 +83,19 @@ public class SectionsController {
 
     public void sectionSelected(javafx.scene.input.MouseEvent event) throws IOException {
         if(event.getClickCount() == 2 && sectionListView.getSelectionModel().getSelectedItem() != null) {
-            Section section = sectionRepository.findByName(searchSectionField.getText());
+            String selectedSectionName = sectionListView.getSelectionModel().getSelectedItem();
+            Section section = sectionRepository.findByName(selectedSectionName);
             switchToTaskScene(section);
         }
     }
+
 
     public void switchToTaskScene(Section section) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/tasks.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
-        stage.setTitle("Tasks");
+        stage.setTitle(section.getName() + " Tasks");
         stage.show();
     }
 
