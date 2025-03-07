@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="program.controllers.TasksController" prefHeight="720.0" prefWidth="1280.0">
+    <VBox layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0">
+        <Button text="Add Task" mnemonicParsing="false" onAction="#createTask" />
+        <Button text="Delete Task" mnemonicParsing="false" onAction="#deleteTask" />
+        <Label fx:id="deleteErrorLabel" />
+
+        <HBox spacing="10.0" alignment="CENTER" layoutY="20.0">
+            <TextField fx:id="searchTaskField" promptText="Search Task" />
+            <Button text="Search" onAction="#searchTasks" />
+        </HBox>
+
+        <Label text="Tasks (double click to view description):" />
+        <ListView fx:id="taskListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#taskSelected" />
+
+        <Button mnemonicParsing="false" onAction="#goBack" text="Go Back to Sections" />
+        <Button mnemonicParsing="false" onAction="#close" text="Close"/>
+    </VBox>
+</AnchorPane>

@@ -3,7 +3,7 @@
 <?import  javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="program.controllers.DashboardController" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="program.controllers.SectionsController" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <VBox layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0">
         <Button text="Add Section" mnemonicParsing="false" onAction="#createSection" />
         <Button text="Delete Section" mnemonicParsing="false" onAction="#deleteSection" />
@@ -15,7 +15,7 @@
         </HBox>
 
         <Label text="Sections (double click to select):" />
-        <ListView fx:id="sectionListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#courseSelected" />
+        <ListView fx:id="sectionListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#sectionSelected" />
 
         <Button mnemonicParsing="false" onAction="#close" text="Close"/>
     </VBox>

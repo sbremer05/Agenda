@@ -49,8 +49,8 @@ public class DeleteSectionController {
             }
         });
 
-        List<Section> allsections = sectionRepository.getAllSections();
-        updateSectionListView(allsections);
+        List<Section> allSections = sectionRepository.getAllSections();
+        updateSectionListView(allSections);
     }
 
 
@@ -80,7 +80,7 @@ public class DeleteSectionController {
                 sectionListView.getSelectionModel().clearSelection();
                 updateSectionListView(sectionRepository.getAllSections());
 
-                returnButton.setText("Return to Dashboard");
+                returnButton.setText("Return to Sections");
             }
         });
     }
@@ -88,12 +88,12 @@ public class DeleteSectionController {
 
 
     public void goBack() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/dashboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/sections.fxml"));
         Scene scene = new Scene(loader.load());
 
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
-        stage.setTitle("Dashboard");
+        stage.setTitle("Sections");
         stage.show();
     }
 }

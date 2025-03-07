@@ -49,17 +49,17 @@ public class CreateSectionController {
         sectionRepository.addSection(section);
         sections.add(section);
         promptLabel.setText("Section added");
-        button.setText("Return to Dashboard");
+        button.setText("Return to Sections");
         newSection.clear();
     }
 
     public void goBack() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/dashboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/sections.fxml"));
         Scene scene = new Scene(loader.load());
 
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
-        stage.setTitle("Dashboard");
+        stage.setTitle("Sections");
         stage.show();
     }
 }

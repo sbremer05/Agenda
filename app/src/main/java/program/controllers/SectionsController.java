@@ -14,7 +14,7 @@ import program.repositories.SectionRepository;
 import java.io.IOException;
 import java.util.*;
 
-public class DashboardController {
+public class SectionsController {
     @FXML
     private TextField searchSectionField;
 
@@ -81,7 +81,20 @@ public class DashboardController {
         updateSectionListView(filteredSections);
     }
 
-    public void courseSelected() {
+    public void sectionSelected(javafx.scene.input.MouseEvent event) throws IOException {
+        if(event.getClickCount() == 2 && sectionListView.getSelectionModel().getSelectedItem() != null) {
+            Section section = sectionRepository.findByName(searchSectionField.getText());
+            switchToTaskScene(section);
+        }
+    }
+
+    public void switchToTaskScene(Section section) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/tasks.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setScene(scene);
+        stage.setTitle("Tasks");
+        stage.show();
     }
 
     public void close() {
