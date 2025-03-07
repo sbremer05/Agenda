@@ -72,6 +72,13 @@ public class DashboardController {
     }
 
     public void searchSections() {
+        String name = searchSectionField.getText().toUpperCase();
+        List<Section> allSections = sectionRepository.getAllSections();
+
+        List<Section> filteredSections = allSections.stream()
+                .filter(section -> section.getName().toUpperCase().contains(name))
+                .toList();
+        updateSectionListView(filteredSections);
     }
 
     public void courseSelected() {
