@@ -1,8 +1,6 @@
-<hibernate-configuration xmlns="http://www.hibernate.org/xsd/hibernate-configuration">
+<hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.username"></property>
-        <property name="connection.password"></property>
 
         <!-- SQL Dialect -->
 
@@ -10,17 +8,17 @@
         <property name="format_sql">true</property>
         <property name="use_sql_comments">false</property>
 
-        <!-- Set the SQL dialest used (such as SQLite, PostgreSQL, MySQL, etc.)
+        <!-- Set the SQL dialect used (such as SQLite, PostgreSQL, MySQL, etc.)
              The below is a dialect for SQLite which is used -->
-        <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>
+        <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
 
         <!-- The driver class used for the databse -->
         <property name="connection.driver_class">org.sqlite.JDBC</property>
 
         <!-- The database connection URL -->
-        <property name="connection.url">jdbc::sqlite:my_db.sqlite</property>
+        <property name="connection.url">jdbc:sqlite:my_db.sqlite</property>
 
-        <!-- Used to update datbase, creating a new database is it doesn't exist -->
+        <!-- Used to update database, creating a new database is it doesn't exist -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Create the Hibernate ORM mapping to desired classes -->

@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import java.io.InputStream;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory = buildSessionFactor();
@@ -11,10 +12,10 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactor() {
         try {
             if(sessionFactory == null) {
-                var standardRegistery = new StandardServiceRegistryBuilder()
+                var standardRegistry = new StandardServiceRegistryBuilder()
                         .configure("hibernate.cfg.xml").build();
 
-                var metaData = new MetadataSources(standardRegistery)
+                var metaData = new MetadataSources(standardRegistry)
                         .getMetadataBuilder().build();
                 sessionFactory = metaData.getSessionFactoryBuilder().build();
             }

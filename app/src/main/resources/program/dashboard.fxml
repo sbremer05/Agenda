@@ -13,7 +13,7 @@
         </HBox>
 
         <Label text="Sections (double click to select):" />
-        <ListView fx:id="sectionListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#courseSelected" />
+        <ListView fx:id="subjectListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#courseSelected" />
 
         <Button mnemonicParsing="false" onAction="#close" text="Close"/>
     </VBox>

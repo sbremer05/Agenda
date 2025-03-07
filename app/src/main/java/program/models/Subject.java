@@ -1,9 +1,6 @@
 package program.models;
 
 import jakarta.persistence.*;
-import javafx.concurrent.Task;
-import org.hibernate.Session;
-
 import java.util.List;
 import java.util.Objects;
 

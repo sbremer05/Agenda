@@ -14,10 +14,8 @@ public class Task {
     @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
 
-    @Column
     private String task;
 
-    @Column
     private String description;
 
     public Task() {}
