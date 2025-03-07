@@ -1,4 +1,4 @@
-# Agenda-App
+# Agenda
 3/6/2025:
 Agenda app I am creating
 
