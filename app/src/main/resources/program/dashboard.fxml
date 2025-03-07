@@ -6,6 +6,8 @@
 <AnchorPane fx:controller="program.controllers.DashboardController" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <VBox layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0">
         <Button text="Add Section" mnemonicParsing="false" onAction="#createSection" />
+        <Button text="Delete Section" mnemonicParsing="false" onAction="#deleteSection" />
+        <Label fx:id="deleteErrorLabel" />
 
         <HBox spacing="10.0" alignment="CENTER" layoutY="20.0">
             <TextField fx:id="searchSectionField" promptText="Search Section" />
@@ -13,7 +15,7 @@
         </HBox>
 
         <Label text="Sections (double click to select):" />
-        <ListView fx:id="subjectListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#courseSelected" />
+        <ListView fx:id="sectionListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#courseSelected" />
 
         <Button mnemonicParsing="false" onAction="#close" text="Close"/>
     </VBox>

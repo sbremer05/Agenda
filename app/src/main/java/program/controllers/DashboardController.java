@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 import javafx.collections.*;
 
 import program.MainApp;
-import program.models.Subject;
-import program.repositories.SubjectRepository;
+import program.models.Section;
+import program.repositories.SectionRepository;
 
 import java.io.IOException;
 import java.util.*;
@@ -19,28 +19,31 @@ public class DashboardController {
     private TextField searchSectionField;
 
     @FXML
-    private ListView<String> subjectListView;
+    private ListView<String> sectionListView;
 
-    private SubjectRepository subjectRepository;
-    private ObservableList<String> subjects;
+    @FXML
+    private Label deleteErrorLabel;
+
+    private SectionRepository sectionRepository;
+    private ObservableList<String> sections;
 
     @FXML
     public void initialize() {
-        subjectRepository = new SubjectRepository();
+        sectionRepository = new SectionRepository();
 
-        subjects = FXCollections.observableArrayList();
+        sections = FXCollections.observableArrayList();
 
-        subjectListView.setItems(subjects);
+        sectionListView.setItems(sections);
 
-        List<Subject> allSubjects = subjectRepository.getAllSubjects();
-        updateSubjectListView(allSubjects);
+        List<Section> allsections = sectionRepository.getAllSections();
+        updateSectionListView(allsections);
     }
 
-    public void updateSubjectListView(List<Subject> newSubjects) {
-        subjects.clear();
+    public void updateSectionListView(List<Section> newSections) {
+        sections.clear();
 
-        for (Subject subject : newSubjects) {
-            subjects.add(subject.getSubjectName());
+        for (Section section : newSections) {
+            this.sections.add(section.getName());
         }
     }
 
@@ -51,6 +54,20 @@ public class DashboardController {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
         stage.setTitle("Create Section");
+        stage.show();
+    }
+
+    public void deleteSection() throws IOException {
+        if(sections.isEmpty()) {
+            deleteErrorLabel.setText("There are no sections to delete");
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/deleteSection.fxml"));
+        Scene scene = new Scene(loader.load());
+
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setScene(scene);
+        stage.setTitle("Delete Section");
         stage.show();
     }
 

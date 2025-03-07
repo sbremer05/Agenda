@@ -1,7 +1,6 @@
 package program.models;
 
 import jakarta.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tasks")
@@ -11,8 +10,8 @@ public class Task {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "subject_id", nullable = false)
-    private Subject subject;
+    @JoinColumn(name = "section_id", nullable = false)
+    private Section section;
 
     private String task;
 
@@ -20,8 +19,8 @@ public class Task {
 
     public Task() {}
 
-    public Task(Subject subject, String task, String description) {
-        this.subject = subject;
+    public Task(Section section, String task, String description) {
+        this.section = section;
         this.task = task;
         this.description = description;
     }
@@ -34,12 +33,12 @@ public class Task {
         this.id = id;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public Section getSection() {
+        return section;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     public String getTask() {

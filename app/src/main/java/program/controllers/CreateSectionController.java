@@ -7,15 +7,15 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import program.MainApp;
-import program.models.Subject;
-import program.repositories.SubjectRepository;
+import program.models.Section;
+import program.repositories.SectionRepository;
 
 import java.io.IOException;
 import java.util.List;
 
 public class CreateSectionController {
     @FXML
-    TextField newSubject;
+    TextField newSection;
 
     @FXML
     Label promptLabel;
@@ -23,34 +23,34 @@ public class CreateSectionController {
     @FXML
     Button button;
 
-    private List<Subject> subjects;
-    private SubjectRepository subjectRepository;
+    private List<Section> sections;
+    private SectionRepository sectionRepository;
 
     @FXML
     public void initialize() {
-        subjectRepository = new SubjectRepository();
-        subjects = subjectRepository.getAllSubjects();
+        sectionRepository = new SectionRepository();
+        sections = sectionRepository.getAllSections();
     }
 
-    public void addSubject() {
-        if(newSubject.getText().isEmpty()) {
-            promptLabel.setText("Please enter subject name");
-            newSubject.requestFocus();
+    public void addSection() {
+        if(newSection.getText().isEmpty()) {
+            promptLabel.setText("Please enter section name");
+            newSection.requestFocus();
             return;
         }
 
-        Subject subject = new Subject(newSubject.getText());
-        if(subjects.contains(subject)) {
-            promptLabel.setText("Subject already exists");
-            newSubject.requestFocus();
+        Section section = new Section(newSection.getText());
+        if(sections.contains(section)) {
+            promptLabel.setText("Section already exists");
+            newSection.requestFocus();
             return;
         }
 
-        subjectRepository.addSubject(subject);
-        subjects.add(subject);
-        promptLabel.setText("Subject added");
+        sectionRepository.addSection(section);
+        sections.add(section);
+        promptLabel.setText("Section added");
         button.setText("Return to Dashboard");
-
+        newSection.clear();
     }
 
     public void goBack() throws IOException {

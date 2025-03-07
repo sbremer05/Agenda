@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="program.controllers.DeleteSectionController" prefHeight="720.0" prefWidth="1280.0">
+    <VBox layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0">
+        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteSection" text="Delete Section" disable="true"/>
+        <Label fx:id="promptLabel" />
+        <ListView fx:id="sectionListView" prefHeight="650.0" prefWidth="1000.0" layoutY="100.0" onMouseClicked="#sectionSelected" />
+        <Button fx:id="returnButton" mnemonicParsing="false" onAction="#goBack" text="Cancel"/>
+    </VBox>
+</AnchorPane>

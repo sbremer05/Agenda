@@ -8,11 +8,11 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="program.controllers.CreateSectionController" prefHeight="720.0" prefWidth="1280.0">
     <VBox layoutX="30.0" layoutY="35.0" prefHeight="720.0" prefWidth="1220.0">
-        <Label text="Subject:" />
-        <TextField fx:id="newSubject" />
+        <Label text="Section:" />
+        <TextField fx:id="newSection" />
         <Label fx:id="promptLabel" />
 
-        <Button mnemonicParsing="false" onAction="#addSubject" text="Add Subject"/>
+        <Button mnemonicParsing="false" onAction="#addSection" text="Add Section"/>
 
         <Button fx:id="button" mnemonicParsing="false" onAction="#goBack" text="Cancel"/>
     </VBox>

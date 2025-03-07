@@ -3,26 +3,30 @@
         <!-- Database connection settings -->
 
         <!-- SQL Dialect -->
-
-        <property name="show_sql">false</property>
-        <property name="format_sql">true</property>
-        <property name="use_sql_comments">false</property>
-
-        <!-- Set the SQL dialect used (such as SQLite, PostgreSQL, MySQL, etc.)
-             The below is a dialect for SQLite which is used -->
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
 
-        <!-- The driver class used for the databse -->
-        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <!-- The driver class used for the database -->
+        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
 
         <!-- The database connection URL -->
-        <property name="connection.url">jdbc:sqlite:my_db.sqlite</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:my_db.sqlite</property>
 
-        <!-- Used to update database, creating a new database is it doesn't exist -->
+        <!-- Used to update database, creating a new database if it doesn't exist -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <!-- Disable Hibernate's internal logging if not using SLF4J -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.use_sql_comments">false</property>
+
+        <!-- Set Hibernate's internal logging to use JDK logging (java.util.logging) -->
+        <property name="hibernate.c3p0.min_size">5</property> <!-- Optional, C3P0 pool settings -->
+        <property name="hibernate.c3p0.max_size">20</property> <!-- Optional, C3P0 pool settings -->
+        <property name="hibernate.c3p0.timeout">300</property> <!-- Optional, C3P0 pool settings -->
+        <property name="hibernate.c3p0.max_statements">50</property> <!-- Optional, C3P0 pool settings -->
+
         <!-- Create the Hibernate ORM mapping to desired classes -->
-        <mapping class="program.models.Subject"/>
+        <mapping class="program.models.Section"/>
         <mapping class="program.models.Task"/>
 
     </session-factory>

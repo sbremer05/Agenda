@@ -5,30 +5,31 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "subjects")
-public class Subject {
+@Table(name = "sections")
+public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
-    private String subjectName;
+    private String name;
 
-    @OneToMany(mappedBy = "subject", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "section", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Task> tasks;
 
-    public Subject() {}
 
-    public Subject(String subjectName) {
-        this.subjectName = subjectName;
+    public Section() {}
+
+    public Section(String sectionName) {
+        this.name = sectionName;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getName() {
+        return name;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Task> getTasks() {
@@ -45,7 +46,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return subjectName;
+        return name;
     }
 
     @Override
@@ -53,9 +54,9 @@ public class Subject {
         if(this == o) {
             return true;
         }
-        if(!(o instanceof Subject subject)) {
+        if(!(o instanceof Section section)) {
             return false;
         }
-        return Objects.equals(subjectName, subject.subjectName);
+        return Objects.equals(name, section.name);
     }
 }
