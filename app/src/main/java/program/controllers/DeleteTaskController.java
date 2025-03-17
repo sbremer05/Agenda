@@ -73,7 +73,6 @@ public class DeleteTaskController {
         String taskInfo = taskListView.getSelectionModel().getSelectedItem();
         String[] info = taskInfo.split(": ");
         task = taskRepository.findByName(info[0]);
-        System.out.println(task.getName());
     }
 
     public void deleteTask() {

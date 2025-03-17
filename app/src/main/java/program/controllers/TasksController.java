@@ -87,8 +87,25 @@ public class TasksController {
         updateTaskListView(filteredTasks);
     }
 
-    public void taskSelected() {
+    public void taskSelected(javafx.scene.input.MouseEvent event) throws IOException {
+        if(event.getClickCount() == 2 && taskListView.getSelectionModel().getSelectedItem() != null) {
+            String taskInfo = taskListView.getSelectionModel().getSelectedItem();
+            String[] info = taskInfo.split(": ");
+            Task task = taskRepository.findByName(info[0]);
+            System.out.println(task.getName());
+            switchToSelectedTaskScene(task);
+        }
+    }
 
+    public void switchToSelectedTaskScene(Task task) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/selectedTask.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setScene(scene);
+        stage.setTitle(task.getName());
+        stage.show();
+        SelectedTaskController controller = loader.getController();
+        controller.initialize(section, task);
     }
 
     public void goBack() throws IOException {

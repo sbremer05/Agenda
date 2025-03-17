@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="program.controllers.SelectedTaskController" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox layoutX="20.0" layoutY="20.0" prefHeight="680.0" prefWidth="1240.0" spacing="15.0">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <Label text="Task Details" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <HBox spacing="10.0">
+            <Label text="Task Name:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Label fx:id="taskName" style="-fx-font-size: 16px;" />
+        </HBox>
+
+        <HBox spacing="10.0">
+            <Label text="Task Description:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Label fx:id="taskDescription" style="-fx-font-size: 16px;" wrapText="true" maxWidth="600.0"/>
+        </HBox>
+
+        <Region/>
+
+        <Button text="Go Back" mnemonicParsing="false" onAction="#goBack" />
+    </VBox>
+</AnchorPane>
