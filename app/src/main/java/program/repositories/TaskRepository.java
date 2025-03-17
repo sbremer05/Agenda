@@ -28,4 +28,21 @@ public class TaskRepository {
         session.getTransaction().commit();
         session.close();
     }
+
+    public Task findByName(String name) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query<Task> query = session.createQuery("from Task t where t.name = :name", Task.class);
+        query.setParameter("name", name);
+        Task task = query.uniqueResult();
+        session.close();
+        return task;
+    }
+
+    public void deleteTask(Task task) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(task);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

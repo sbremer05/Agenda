@@ -51,4 +51,12 @@ public class SectionRepository {
         session.getTransaction().commit();
         session.close();
     }
+
+    public void deleteTask(Section section, Task task) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        section.removeTask(task);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

@@ -15,15 +15,15 @@ public class Task {
     @JoinColumn(name = "section_id", nullable = false)
     private Section section;
 
-    private String task;
+    private String name;
 
     private String description;
 
     public Task() {}
 
-    public Task(Section section, String task, String description) {
+    public Task(Section section, String name, String description) {
         this.section = section;
-        this.task = task;
+        this.name = name;
         this.description = description;
     }
 
@@ -43,12 +43,12 @@ public class Task {
         this.section = section;
     }
 
-    public String getTask() {
-        return task;
+    public String getName() {
+        return name;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setName(String task) {
+        this.name = task;
     }
 
     public String getDescription() {
@@ -65,7 +65,7 @@ public class Task {
         if (o == null || getClass() != o.getClass()) return false;
         Task task1 = (Task) o;
         return Objects.equals(section, task1.section) &&
-                Objects.equals(task, task1.task) &&
+                Objects.equals(name, task1.name) &&
                 Objects.equals(description, task1.description);
     }
 }

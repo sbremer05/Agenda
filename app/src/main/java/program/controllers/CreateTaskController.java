@@ -49,7 +49,7 @@ public class CreateTaskController {
 
         Task task = new Task(section, taskName.getText(), taskDescription.getText());
 
-        if(tasks.stream().anyMatch(t -> t.getTask().equals(task.getTask()))) {
+        if(tasks.stream().anyMatch(t -> t.getName().equals(task.getName()))) {
             promptLabel.setText("Task already exists");
             taskName.requestFocus();
             return;

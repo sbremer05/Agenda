@@ -46,7 +46,7 @@ public class TasksController {
         tasks.clear();
 
         for(Task task : allTasks) {
-            tasks.add(task.getTask() + ": " + task.getDescription());
+            tasks.add(task.getName() + ": " + task.getDescription());
         }
     }
 
@@ -62,6 +62,18 @@ public class TasksController {
     }
 
     public void deleteTask() throws IOException {
+        if(tasks.isEmpty()) {
+            deleteErrorLabel.setText("There are no tasks to delete");
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("program/deleteTask.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setScene(scene);
+        stage.setTitle("Delete Task");
+        DeleteTaskController controller = loader.getController();
+        controller.initialize(section);
+        stage.show();
     }
 
     public void searchTasks() {

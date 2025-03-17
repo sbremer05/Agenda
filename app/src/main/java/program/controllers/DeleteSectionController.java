@@ -40,7 +40,7 @@ public class DeleteSectionController {
         sectionListView.setItems(sections);
 
         sectionListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
+            if(newValue != null) {
                 deleteButton.setDisable(false);
                 section = sectionRepository.findByName(newValue);
             } else {
@@ -74,7 +74,7 @@ public class DeleteSectionController {
         confirmationAlert.setContentText("This action cannot be undone.");
 
         confirmationAlert.showAndWait().ifPresent(response -> {
-            if (response == ButtonType.OK) {
+            if(response == ButtonType.OK) {
                 sectionRepository.deleteSection(section);
 
                 sectionListView.getSelectionModel().clearSelection();
