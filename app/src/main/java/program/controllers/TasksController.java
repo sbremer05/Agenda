@@ -16,7 +16,9 @@ import program.models.Task;
 import program.repositories.TaskRepository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TasksController {
     @FXML
@@ -77,6 +79,12 @@ public class TasksController {
     }
 
     public void searchTasks() {
+        String name = searchTaskField.getText().toLowerCase();
+        List<Task> allTasks = taskRepository.getTasks(section);
+        List<Task> filteredTasks = allTasks.stream().
+                filter(task -> task.getName().toLowerCase().contains(name))
+                .toList();
+        updateTaskListView(filteredTasks);
     }
 
     public void taskSelected() {
