@@ -97,6 +97,8 @@ public class SectionsController {
         stage.setScene(scene);
         stage.setTitle(section.getName() + " Tasks");
         stage.show();
+        TasksController controller = loader.getController();
+        controller.initialize(section);
     }
 
     public void close() {

@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import program.HibernateUtil;
 import program.models.Section;
+import program.models.Task;
 
 import java.util.List;
 
@@ -41,5 +42,13 @@ public class SectionRepository {
         Section section = query.uniqueResult();
         session.close();
         return section;
+    }
+
+    public void addTask(Section section, Task task) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        section.addTask(task);
+        session.getTransaction().commit();
+        session.close();
     }
 }
