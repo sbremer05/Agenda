@@ -1,20 +1,53 @@
 package program.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import program.MainApp;
 import program.models.Section;
+import program.models.Task;
+import program.repositories.TaskRepository;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TasksController {
+    @FXML
+    private TextField searchTaskField;
+
+    @FXML
+    private ListView<String> taskListView;
+
+    @FXML
+    private Label deleteErrorLabel;
+
+    private TaskRepository taskRepository;
+    private ObservableList<String> tasks;
 
     private Section section;
 
     public void initialize(Section section) {
         this.section = section;
+        taskRepository = new TaskRepository();
+        tasks = FXCollections.observableArrayList();
+        taskListView.setItems(tasks);
+        List<Task> allTasks = taskRepository.getTasks(section);
+        updateTaskListView(allTasks);
+    }
+
+    public void updateTaskListView(List<Task> allTasks) {
+        tasks.clear();
+
+        for(Task task : allTasks) {
+            tasks.add(task.getTask() + ": " + task.getDescription());
+        }
     }
 
     public void createTask() throws IOException {

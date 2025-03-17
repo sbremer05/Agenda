@@ -35,15 +35,15 @@ public class SectionsController {
 
         sectionListView.setItems(sections);
 
-        List<Section> allsections = sectionRepository.getAllSections();
-        updateSectionListView(allsections);
+        List<Section> allSections = sectionRepository.getAllSections();
+        updateSectionListView(allSections);
     }
 
     public void updateSectionListView(List<Section> newSections) {
         sections.clear();
 
         for (Section section : newSections) {
-            this.sections.add(section.getName());
+            sections.add(section.getName());
         }
     }
 

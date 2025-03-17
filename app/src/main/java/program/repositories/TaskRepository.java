@@ -13,9 +13,6 @@ public class TaskRepository {
     private Session session;
 
     public List<Task> getTasks(Section section) {
-//        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-//            return session.createQuery("from Task t where t.section = :section", Task.class).list();
-//        }
         session = HibernateUtil.getSessionFactory().openSession();
         Query<Task> query = session.createQuery("from Task t where t.section = :section", Task.class);
         query.setParameter("section", section);
