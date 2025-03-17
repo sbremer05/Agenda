@@ -49,7 +49,7 @@ public class CreateTaskController {
 
         Task task = new Task(section, taskName.getText(), taskDescription.getText());
 
-        if(tasks.stream().anyMatch(t -> t.equals(task))) {
+        if(tasks.stream().anyMatch(t -> t.getTask().equals(task.getTask()))) {
             promptLabel.setText("Task already exists");
             taskName.requestFocus();
             return;
@@ -70,7 +70,9 @@ public class CreateTaskController {
         Scene scene = new Scene(loader.load());
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
-        stage.setTitle("Sections");
+        stage.setTitle(section.getName() + " Tasks");
+        TasksController controller = loader.getController();
+        controller.initialize(section);
         stage.show();
     }
 }
