@@ -1,10 +1,5 @@
 # Agenda
-3/6/2025 - 3/16/2025:
-Agenda app I am creating
+Agenda program programmed in Java
+Utilizes SQLite, Hibernate, JavaFX, and Gradle
 
-Can add and remove sections (school, work, errands, etc.)
-Within sections can add and remove tasks
-
-All persisted to SQL database using Hibernate
-
-Utilizes gradle and javaFX
+Allows users to add/remove unique sections. Within sections, users can add/remove unique tasks. All data is then persisted via Hibernate to the SQLite database. Follows MVC architecture.
